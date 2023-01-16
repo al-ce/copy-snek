@@ -6,7 +6,7 @@ Because [treepy](https://pypi.org/project/treepy/) was already taken and does th
 
 ## Description
 
-A shameless clone of [tree](https://www.computerhope.com/unix/tree.htm) to print a nice looking recursive tree of the current directory in your terminal. Just use tree! I wrote this as an exercise to learn the Python `pathlib` module.
+A shameless imitation of [tree](https://www.computerhope.com/unix/tree.htm) to print a nice looking recursive tree of the current directory in your terminal, but none of tree's other great opts. Just use tree! I wrote this as an exercise to learn the Python `pathlib` module.
 
 `treesnek` "grows" the directory tree by recursively adding the directory's contents to a dictionary to the specified depth limit (`TreeGrower.path_data()`), then sorting the dictionary by type (directory or non-) then name (possible since Python 3.7).
 
