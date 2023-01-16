@@ -11,8 +11,8 @@ root/
 │   └── file5.txt
 └── file6.txt
 """
-import argparse
 
+import argparse
 from pathlib import Path
 from colorama import Fore
 
