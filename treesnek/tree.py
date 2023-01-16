@@ -44,7 +44,8 @@ class TreeGrower:
     def __init__(self, path, hide=True, max_indent=float("inf")):
         self.path = Path(path)
         self.hide = hide
-        self.max_indent = max_indent
+        self.max_indent = max_indent if max_indent <= 10 else 10
+        self.depth = 0
 
     def is_hidden(self, path_obj: Path, hide: bool) -> bool:
         """Return True if the Path obj is hidden and hide flag is True."""
@@ -56,12 +57,15 @@ class TreeGrower:
         if root:
             data["root"] = True
         if path.is_dir():
+            self.depth += 1
             data["type"] = "directory"
             data["contents"] = [
                 self.path_data(child, hide, False)
                 for child in path.iterdir()
-                if not self.is_hidden(child, hide)
+                if not self.is_hidden(child, hide) and not child.is_symlink()
+                and self.depth <= self.max_indent
             ]
+            self.depth -= 1
             return data
 
         return {
