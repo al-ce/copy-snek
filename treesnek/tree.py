@@ -33,6 +33,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--l",
+    "-L",
     dest="level",
     type=int,
     default=1,
